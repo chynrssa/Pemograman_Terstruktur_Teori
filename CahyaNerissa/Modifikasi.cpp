@@ -10,7 +10,6 @@ int main(){
     cout << "    2. Nabila Cahaya Putri   2357051010\n";  
     cout << "    3. Ria Safitri           2317051113\n";
     cout << "====================================================="  << endl;
-
 }
 
 //kode ini sebagai tambahan berguna untuk menampilkan asal kelompok dan nama-nama anggota kelompok.
