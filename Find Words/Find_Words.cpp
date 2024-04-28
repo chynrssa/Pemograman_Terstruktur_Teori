@@ -116,4 +116,52 @@ int main(){
     cout << "    2. Nabila Cahaya Putri   2357051010\n";  
     cout << "    3. Ria Safitri           2317051113\n";
     cout << "====================================================="  << endl;
+
+    int WordCount;
+    cin >> WordCount;
+
+    string* Word = new string[WordCount];
+        for (int i = 0; i < WordCount; ++i) {
+            cin >> Word[i];
+}
+
+    const int JumlahBaris = 23;
+    const int JumlahKolom = 23;
+    string matriks[JumlahBaris] = {
+        "AAFLKHPFSSUFICICLESGNNH",
+        "SFVREOMRWLRTTSXOQQNAOAO",
+        "QEIAIFXAEIRFVFYSXIMINJI",
+        "WSTRLGOCAPBIAFIWIWTUACM",
+        "FEYAEAISTPCRLUJKOAKCERS",
+        "RVDAKPNDDEEHDEMSNCKKFOAH",
+        "MRNEDSLCRRIWNRSAAFITMMI",
+        "YAAECIEAHYMOTAVHRSSTISB",
+        "RJSEWELCCENNIETOHWSGLSE",
+        "ATANYYMOIEESNESIOIRELTR",
+        "UTENEWEBHMYBETNNRAIEBEN",
+        "RCLKUTEAEQJLSGSHTGDSKOA",
+        "BHOICATNRRSDDECEHOOLGIT",
+        "ENSLUARIRSETALOCOHCTOHE",
+        "FZFUDQJYMADOYIWYGLOVESU",
+        "TEKALFWONSNAEBMIEJTZNTG",
+        "ESWPOSJXEUTUYOZUWAKEZHM",
+        "KZUHBPEZEERFLMSNOWBALLH",
+        "NSNOWBOARDYTVWYCLEVOHSA",
+        "ACOCRQLGZIYCHODRAZZILBI",
+        "LBVKKWANZAAQINWOLPWONSL",
+        "BFREEZINGRAINSLILGTMELT",
+        "HQPYLWHFMNFFUFPSWXNUMMV"
+    };
+
+for (int i = 0; i < WordCount; ++i) {
+    if (FindWords(matriks, JumlahBaris, JumlahKolom, Word[i])) {
+            cout << "Ada" << endl;
+        } else { 
+            cout << "Tidak Ada" << endl;
+        }
+    }
+
+delete[] Word;
+
+return 0;
 }
