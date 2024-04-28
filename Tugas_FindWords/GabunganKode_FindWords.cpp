@@ -56,4 +56,5 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
         }
     }   
 
+
 }
