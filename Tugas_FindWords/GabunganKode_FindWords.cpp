@@ -13,7 +13,7 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
             }
         }
     }
-
+    
     for (int Vertikal = 0; Vertikal < JumlahKolom; ++Vertikal) {
         for (int Horizontal = 0; Horizontal <= JumlahBaris - WordLength; ++Horizontal) {
             string VertikalKata = "";
