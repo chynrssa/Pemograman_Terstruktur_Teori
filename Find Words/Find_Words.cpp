@@ -73,8 +73,8 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
         }
     }
 
-    for (int Horizontal = jumlahBaris - 1; Horizontal >= WordLength - 1; --Horizontal) {
-        for (int Vertikal = 0; Vertikal <= jumlahKolom - WordLength; ++Vertikal) {
+    for (int Horizontal = JumlahBaris - 1; Horizontal >= WordLength - 1; --Horizontal) {
+        for (int Vertikal = 0; Vertikal <= JumlahKolom - WordLength; ++Vertikal) {
             bool ditemukan = true;
             for (int i = 0; i < WordLength; ++i) {
                 if (matriks[Horizontal - i][Vertikal + i] != WordUpper[i]) {
