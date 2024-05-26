@@ -3,12 +3,24 @@
 using namespace std;
 
 bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const string& Word) {
-    int WordLength = Word.length();
+    string WordUpper = Word;
+    for (char& c : WordUpper) {
+        if (c >= 'a' && c <= 'z') {
+            c = c - 'a' + 'A';
+        }
+    }
+    
+    int WordLength = WordUpper.length();
 
     for (int Horizontal = 0; Horizontal < JumlahBaris; ++Horizontal) {
         for (int Vertikal = 0; Vertikal <= JumlahKolom - WordLength; ++Vertikal) {
             string Potongan = matriks[Horizontal].substr(Vertikal, WordLength);
-            if (Potongan == Word){
+            for (char& c : Potongan) {
+                if (c >= 'a' && c <= 'z') {
+                    c = c - 'a' + 'A'; 
+                }
+            }
+            if (Potongan == WordUpper){
                 return true;
             }
         }
@@ -20,7 +32,12 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
             for (int i = 0; i < WordLength; ++i) {
                 VertikalKata += matriks[Horizontal + i][Vertikal];
             }
-            if (VertikalKata == Word) {
+            for (char& c : VertikalKata) {
+                if (c >= 'a' && c <= 'z') {
+                    c = c - 'a' + 'A';
+                }
+            }
+            if (VertikalKata == WordUpper) {
                 return true;
             }
         }
@@ -30,7 +47,7 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
         for (int Vertikal = 0; Vertikal <= JumlahKolom - WordLength; ++Vertikal) {
             bool ditemukan = true;
             for ( int i = 0; i < WordLength; ++i){
-                if (matriks[Horizontal + i][Vertikal + i] != Word[i]) {
+                if (matriks[Horizontal + i][Vertikal + i] != WordUpper[i]) {
                     ditemukan = false;
                     break;
                 }
@@ -45,7 +62,7 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
         for (int Vertikal = JumlahKolom - 1; Vertikal >= WordLength - 1; --Vertikal) {
             bool ditemukan = true;
             for ( int i = 0; i < WordLength; ++i){
-                if (matriks[Horizontal + i][Vertikal - i] != Word[i]) {
+                if (matriks[Horizontal + i][Vertikal - i] != WordUpper[i]) {
                     ditemukan = false;
                     break;
                 }
@@ -54,7 +71,40 @@ bool FindWords (const string* matriks, int JumlahBaris, int JumlahKolom, const s
                 return true;
             }
         }
-    }   
+    }
+
+    for (int Horizontal = JumlahBaris - 1; Horizontal >= WordLength - 1; --Horizontal) {
+        for (int Vertikal = 0; Vertikal <= JumlahKolom - WordLength; ++Vertikal) {
+            bool ditemukan = true;
+            for (int i = 0; i < WordLength; ++i) {
+                if (matriks[Horizontal - i][Vertikal + i] != WordUpper[i]) {
+                    ditemukan = false;
+                    break;
+                }
+            }
+
+            if (ditemukan) {
+                return true;
+            }
+        }
+    }
+
+    for (int Horizontal = JumlahBaris - 1; Horizontal >= WordLength - 1; --Horizontal) {
+        for (int Vertikal = JumlahKolom - 1; Vertikal >= WordLength - 1; --Vertikal) {
+            bool ditemukan = true;
+            for (int i = 0; i < WordLength; ++i) {
+                if (matriks[Horizontal - i][Vertikal - i] != WordUpper[i]) {
+                    ditemukan = false;
+                    break;
+                }
+            }
+
+            if (ditemukan) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 int main(){
@@ -66,4 +116,52 @@ int main(){
     cout << "    2. Nabila Cahaya Putri   2357051010\n";  
     cout << "    3. Ria Safitri           2317051113\n";
     cout << "====================================================="  << endl;
+
+    int WordCount;
+    cin >> WordCount;
+
+    string* Word = new string[WordCount];
+        for (int i = 0; i < WordCount; ++i) {
+            cin >> Word[i];
+}
+
+    const int JumlahBaris = 23;
+    const int JumlahKolom = 23;
+    string matriks[JumlahBaris] = {
+        "AAFLKHPFSSUFICICLESGNNH",
+        "SFVREOMRWLRTTSXOQQNAOAO",
+        "QEIAIFXAEIRFVFYSXIMINJI",
+        "WSTRLGOCAPBIAFIWIWTUACM",
+        "FEYAEAISTPCRLUJKOAKCERS",
+        "RVDAKPNDDEEHDEMSNCKKFOAH",
+        "MRNEDSLCRRIWNRSAAFITMMI",
+        "YAAECIEAHYMOTAVHRSSTISB",
+        "RJSEWELCCENNIETOHWSGLSE",
+        "ATANYYMOIEESNESIOIRELTR",
+        "UTENEWEBHMYBETNNRAIEBEN",
+        "RCLKUTEAEQJLSGSHTGDSKOA",
+        "BHOICATNRRSDDECEHOOLGIT",
+        "ENSLUARIRSETALOCOHCTOHE",
+        "FZFUDQJYMADOYIWYGLOVESU",
+        "TEKALFWONSNAEBMIEJTZNTG",
+        "ESWPOSJXEUTUYOZUWAKEZHM",
+        "KZUHBPEZEERFLMSNOWBALLH",
+        "NSNOWBOARDYTVWYCLEVOHSA",
+        "ACOCRQLGZIYCHODRAZZILBI",
+        "LBVKKWANZAAQINWOLPWONSL",
+        "BFREEZINGRAINSLILGTMELT",
+        "HQPYLWHFMNFFUFPSWXNUMMV"
+    };
+
+for (int i = 0; i < WordCount; ++i) {
+    if (FindWords(matriks, JumlahBaris, JumlahKolom, Word[i])) {
+            cout << "Ada" << endl;
+        } else { 
+            cout << "Tidak Ada" << endl;
+        }
+    }
+
+delete[] Word;
+
+return 0;
 }
