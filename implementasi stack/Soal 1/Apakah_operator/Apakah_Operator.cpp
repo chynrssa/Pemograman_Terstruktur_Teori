@@ -9,3 +9,4 @@ bool Operator(char karakter) {
     return karakter == '+' or karakter == '-' or karakter == '*' or karakter == '/' or 
                         karakter == '%' or karakter == '(' or karakter == ')';
 }
+
