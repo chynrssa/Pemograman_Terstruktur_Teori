@@ -5,7 +5,7 @@ using namespace std;
 const int JumlahBaris = 23;
 const int JumlahKolom = 23;
 string matriks[JumlahBaris] = {
-     "AAFLKHPFSSUFICICLESGNNH",
+        "AAFLKHPFSSUFICICLESGNNH",
         "SFVREOMRWLRTTSXOQQNAOAO",
         "QEIAIFXAEIRFVFYSXIMINJI",
         "WSTRLGOCAPBIAFIWIWTUACM",
