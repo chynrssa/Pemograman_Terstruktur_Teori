@@ -14,7 +14,7 @@ bool Digit(char karakter) {
     return isdigit(karakter);
 }
 
-vector<string> tokenize(const string &infix) {
+vector<string> strToInfix(const string &infix) {
     vector<string> token;
     stringstream pengumpulString;
     bool sebelumnyaoperator = true, karakterPertama = true;
