@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> strToInfix(const string &infix) {
+vector<string> tokenize(const string &infix) {
     vector<string> token;
 }
 void cetakToken(const vector<string> &token) {
