@@ -14,7 +14,3 @@ bool Operator(char karakter) {
 bool Digit(char karakter) {
     return isdigit(karakter);
 }
-
-bool Digit(char karakter) {
-    return isdigit(karakter);
-}
