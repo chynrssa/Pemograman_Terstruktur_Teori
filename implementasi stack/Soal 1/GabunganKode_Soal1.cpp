@@ -14,6 +14,12 @@ bool Digit(char karakter) {
     return isdigit(karakter);
 }
 
+int Precedence(char op) {
+    if (op == '+' || op == '-') return 1;
+    if (op == '*' || op == '/' || op == '%') return 2;
+    return 0;
+}
+
 vector<string> strToInfix(const string &infix) {
     vector<string> token;
     stringstream pengumpulString;
